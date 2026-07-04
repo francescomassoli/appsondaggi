@@ -1,0 +1,45 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    -webkit-text-size-adjust: 100%;
+  }
+  body {
+    @apply bg-slate-50 text-slate-900 antialiased;
+  }
+  /* Anello di focus ben visibile per accessibilità da tastiera */
+  :focus-visible {
+    @apply outline-none ring-4 ring-brand/40;
+  }
+}
+
+@layer components {
+  /* Pulsante primario grande, alto contrasto */
+  .btn {
+    @apply inline-flex items-center justify-center gap-2 rounded-xl px-6 py-4
+      text-lg font-semibold transition focus-visible:ring-4 disabled:opacity-50
+      disabled:cursor-not-allowed;
+  }
+  .btn-primary {
+    @apply btn bg-brand text-white hover:bg-brand-dark;
+  }
+  .btn-secondary {
+    @apply btn border-2 border-slate-300 bg-white text-slate-800 hover:bg-slate-100;
+  }
+  .btn-danger {
+    @apply btn bg-red-600 text-white hover:bg-red-700;
+  }
+  /* Campo di testo grande */
+  .field {
+    @apply w-full rounded-xl border-2 border-slate-300 bg-white px-4 py-4 text-lg
+      shadow-sm focus:border-brand;
+  }
+  .label {
+    @apply mb-2 block text-lg font-semibold text-slate-800;
+  }
+  .card {
+    @apply rounded-2xl border border-slate-200 bg-white p-6 shadow-sm;
+  }
+}
